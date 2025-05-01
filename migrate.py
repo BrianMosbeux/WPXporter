@@ -12,25 +12,31 @@ HEADERS = {
 
 def main(domain, content_type):
     url = WP_API_URL.format(domain=domain, content_type=content_type)
+    posts = fetch_wordpress_content(url)
+    print(f"\nTotal posts fetched: {len(posts)}")
+
+
+def fetch_wordpress_content(wordpress_api_url):
+    content = []
     page = 1
-    print(f"Fetching {url}...")
+    print(f"Fetching {wordpress_api_url}...")
     while True:  
         try:
-            response = requests.get(url, headers=HEADERS, params={"per_page": 100, "page": page})
+            response = requests.get(wordpress_api_url, headers=HEADERS, params={"per_page": 100, "page": page})
             response.raise_for_status()
             data = response.json()
             if not data:
                 break
             print(f"\n--- Page {page} ---")
-            for item in data:
-                print(item.get('title', {}).get('rendered', 'No Title'))
+            content.extend(data)
             page += 1
         except requests.exceptions.RequestException as e:
-            print(f"Error: {e}")
+            print(f"Request failed on page {page}: {e}")
             break
+    return content
 
 
 if __name__ == '__main__':
-    domain = input('Domain Name: ')
-    content_type = input('Content type: ')
+    domain = input('Domain Name: ').strip()
+    content_type = input('Content type: ').strip()
     main(domain, content_type)
