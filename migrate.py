@@ -87,9 +87,30 @@ def extract_seo_metadata(yoast_head):
     og_image_tag = soup.find("meta", {"property": "og:image"})
     if og_image_tag:
         seo_data["og_image"] = og_image_tag.get("content")
+    og_url_tag = soup.find("meta", {"property": "og:url"})
+    if og_url_tag:
+        seo_data["og_url"] = og_url_tag.get("content")
+    og_type_tag = soup.find("meta", {"property": "og:type"})
+    if og_type_tag:
+        seo_data["og_type"] = og_type_tag.get("content")
+    og_site_name_tag = soup.find("meta", {"property": "og:site_name"})
+    if og_site_name_tag:
+        seo_data["og_site_name"] = og_site_name_tag.get("content")
     twitter_card_tag = soup.find("meta", {"name": "twitter:card"})
     if twitter_card_tag:
         seo_data["twitter_card"] = twitter_card_tag.get("content")
+    twitter_title_tag = soup.find("meta", {"name": "twitter:title"})
+    if twitter_title_tag:
+        seo_data["twitter_title"] = twitter_title_tag.get("content")
+    twitter_description_tag = soup.find("meta", {"name": "twitter:description"})
+    if twitter_description_tag:
+        seo_data["twitter_description"] = twitter_description_tag.get("content")
+    twitter_image_tag = soup.find("meta", {"name": "twitter:image"})
+    if twitter_image_tag:
+        seo_data["twitter_image"] = twitter_image_tag.get("content")
+    twitter_creator_tag = soup.find("meta", {"name": "twitter:creator"})
+    if twitter_creator_tag:
+        seo_data["twitter_creator"] = twitter_creator_tag.get("content")
     # Extract structured data
     json_ld_tag = soup.find("script", {"type": "application/ld+json"})
     if json_ld_tag:
