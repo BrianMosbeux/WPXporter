@@ -35,8 +35,31 @@ def fetch_wordpress_content(wordpress_api_url):
             break
     return content
 
+def process_posts(posts):
+    processed_posts = []
+    for post in posts:
+        processed_posts.append({
+            "id": post["id"],
+            "date": post["date"],  
+            "modified": post["modified"],  # Important for SEO freshness
+            "slug": post["slug"],
+            "status": post["status"],
+            "type": post["type"],
+            "title": post["title"]["rendered"],  
+            "content": post["content"]["rendered"],
+            "excerpt": post["excerpt"]["rendered"],
+            "author": post["author"],
+            "featured_media": post["featured_media"],
+            "categories": post["categories"],
+            "tags": post["tags"],
+            "yoast_head": post["yoast_head"]
+        })
+    return processed_posts
 
 if __name__ == '__main__':
     domain = input('Domain Name: ').strip()
     content_type = input('Content type: ').strip()
     main(domain, content_type)
+
+
+"""
