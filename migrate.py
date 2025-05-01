@@ -10,14 +10,13 @@ HEADERS = {
     "Accept": "application/json",
 }
 
-print(WP_API_URL.format(domain='moving2madrid.com', content_type=''))
 def main(domain, content_type):
-	response = requests.get(WP_API_URL.format(domain=domain, content_type=content_type), headers=HEADERS, params={"per_page": 100, "page": 1})
-	print(response)
+    response = requests.get(WP_API_URL.format(domain=domain, content_type=content_type), headers=HEADERS, params={"per_page": 100, "page": 1})
+    print(response)
 
 
 
 if __name__ == '__main__':
-	domain = input('Domain Name: ')
-	content_type = input('Content type: ')
-	main(domain, content_type)
+    domain = input('Domain Name: ')
+    content_type = input('Content type: ')
+    main(domain, content_type)
