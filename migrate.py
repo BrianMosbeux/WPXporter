@@ -1,6 +1,7 @@
 from bs4 import BeautifulSoup
-import requests
+import os
 import json
+import requests
 
 # WordPress API URL
 WP_API_URL = "https://{domain}/wp-json/wp/v2/{content_type}"
@@ -49,6 +50,7 @@ def process_posts(posts):
             "slug": post["slug"],
             "status": post["status"],
             "type": post["type"],
+            "link": post["link"],
             "title": post["title"]["rendered"],  
             "content": post["content"]["rendered"],
             "excerpt": post["excerpt"]["rendered"],
@@ -68,7 +70,14 @@ def extract_seo_metadata(yoast_head):
         "og_title": None,
         "og_description": None,
         "og_image": None,
+        "og_url": None,
+        "og_type": None,
+        "og_site_name": None,
         "twitter_card": None,
+        "twitter_title": None,
+        "twitter_description": None,
+        "twitter_image": None,
+        "twitter_creator": None,
         "structured_data": None
     }
     # Extract meta tags
@@ -121,6 +130,7 @@ def extract_seo_metadata(yoast_head):
     return seo_data
 
 def save_to_json(posts, filename="output/wordpress_posts.json"):
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(posts, f, indent=4, ensure_ascii=False)
 
