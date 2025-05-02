@@ -20,6 +20,8 @@ def main(domain, content_type):
     processed_posts = process_posts(posts)
     print(f"\nTotal posts processed: {len(processed_posts)}")
     save_to_json(processed_posts)
+    for post in processed_posts:
+        save_markdown_file(post)
 
 def fetch_wordpress_content(wordpress_api_url):
     content = []
@@ -136,6 +138,51 @@ def save_to_json(posts, filename="output/wordpress_posts.json"):
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(posts, f, indent=4, ensure_ascii=False)
+
+def save_markdown_file(post):
+    filename = f"output/posts/{post['slug']}.md"
+    os.makedirs(os.path.dirname(filename), exist_ok=True)
+    
+    # Prepare the markdown file content
+    markdown_file_content = f"""---
+id: {post['id']}
+slug: {post['slug']}
+date: {post['date']}
+modified: {post['modified']}
+status: {post['status']}
+title: {post['title']}
+author: {post['author']}
+featured_media: {post['featured_media']}
+categories: {post['categories']}
+tags: {post['tags']}
+seo:
+  meta_description: {post['meta_description']}
+  canonical: {post['canonical']}
+  og:
+    title: {post['og_title']}
+    description: {post['og_description']}
+    image: {post['og_image']}
+    type: {post['og_type']}
+    url: {post['og_url']}
+  twitter:
+    card: {post['twitter_card']}
+    title: {post['twitter_title']}
+    description: {post['twitter_description']}
+    image: {post['twitter_image']}
+    creator: {post['twitter_creator']}
+  structured_date: {post['structured_data']}  
+---
+
+# {post['title']}
+
+{post['content']}
+"""
+    
+    # Save to file
+    with open(filename, "w", encoding="utf-8") as file:
+        file.write(markdown_file_content)
+
+    print(f"Markdown file saved: {filename}")
 
 if __name__ == '__main__':
     domain = input('Domain Name: ').strip()
