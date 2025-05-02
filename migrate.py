@@ -170,7 +170,7 @@ seo:
     description: {post['twitter_description']}
     image: {post['twitter_image']}
     creator: {post['twitter_creator']}
-  structured_date: {post['structured_data']}  
+  structured_data: {post['structured_data']}  
 ---
 
 # {post['title']}
