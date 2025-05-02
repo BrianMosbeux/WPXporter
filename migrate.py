@@ -141,7 +141,6 @@ def save_to_json(posts, filename="output/wordpress_posts.json"):
 
 def save_markdown_file(post):
     filename = f"output/posts/{post['slug']}.md"
-    structured_data_str = json.dumps(post["structured_data"], ensure_ascii=False, indent=2) if post["structured_data"] else "null"
     os.makedirs(os.path.dirname(filename), exist_ok=True)
     
     # Prepare the markdown file content
@@ -171,7 +170,6 @@ seo:
     description: {post['twitter_description']}
     image: {post['twitter_image']}
     creator: {post['twitter_creator']}
-  structured_data: {structured_data_str}  
 ---
 
 # {post['title']}
