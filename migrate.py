@@ -1,4 +1,5 @@
 from bs4 import BeautifulSoup
+import markdownify
 import os
 import json
 import requests
@@ -43,6 +44,8 @@ def process_posts(posts):
     processed_posts = []
     for post in posts:
         seo_data = extract_seo_metadata(post["yoast_head"])
+        markdown_content = markdownify.markdownify(post["content"]["rendered"])
+        markdown_excerpt = markdownify.markdownify(post["excerpt"]["rendered"])
         processed_posts.append({
             "id": post["id"],
             "date": post["date"],  
@@ -52,8 +55,8 @@ def process_posts(posts):
             "type": post["type"],
             "link": post["link"],
             "title": post["title"]["rendered"],  
-            "content": post["content"]["rendered"],
-            "excerpt": post["excerpt"]["rendered"],
+            "content": markdown_content,
+            "excerpt": markdown_excerpt,
             "author": post["author"],
             "featured_media": post["featured_media"],
             "categories": post["categories"],
