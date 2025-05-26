@@ -174,4 +174,13 @@ cython_debug/
 .pypirc
 
 # output
-output
+output/
+data/
+mdx/
+markdown/
+processed/
+raw/
+*.mdx
+*.json
+config.py
+

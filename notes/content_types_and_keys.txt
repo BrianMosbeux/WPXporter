@@ -1,0 +1,155 @@
+
+
+#tags
+
+  - id
+  - count
+  - description
+  - link
+  - name
+  - slug
+  - taxonomy 
+  - meta
+  - yoast_head
+  - _links
+
+#categories
+
+  - id
+  - count
+  - description
+  - link
+  - name
+  - slug
+  - taxonomy
+  - parent
+  - meta
+  - acf
+  - yoast_head
+  - _links
+
+#comments
+
+  - id
+  - post
+  - parent
+  - author
+  - author_name
+  - author_url
+  - date
+  - date_gmt
+  - content
+  - link
+  - status
+  - type
+  - author_avatar_urls
+  - meta
+  - acf
+  - _links
+
+#posts
+
+  - id
+  - date
+  - date_gmt
+  - guid
+  - modified
+  - modified_gmt
+  - slug
+  - status
+  - type
+  - link
+  - title
+  - content
+  - excerpt
+  - author
+  - featured_media
+  - comment_status
+  - ping_status
+  - sticky
+  - template
+  - format
+  - meta
+  - categories
+  - tags
+  - class_list
+  - acf
+  - yoast_head
+  - amp_enabled
+  - _links
+
+#media
+
+  - id
+  - date
+  - date_gmt
+  - guid
+  - modified
+  - modified_gmt
+  - slug
+  - status
+  - type
+  - link
+  - title
+  - author
+  - featured_media
+  - comment_status
+  - ping_status
+  - template
+  - meta
+  - class_list
+  - acf
+  - yoast_head
+  - description
+  - caption
+  - alt_text
+  - media_type
+  - mime_type
+  - media_details
+  - post
+  - source_url
+  - _links
+
+#users
+
+  - id
+  - name
+  - url
+  - description
+  - link
+  - slug
+  - avatar_urls
+  - meta
+  - acf
+  - amp_review_panel_dismissed_for_template_mode
+  - amp_dev_tools_enabled
+  - yoast_head
+  - _links
+
+#pages
+
+  - id
+  - date
+  - date_gmt
+  - guid
+  - modified
+  - modified_gmt
+  - slug
+  - status
+  - type
+  - link
+  - title
+  - content
+  - excerpt
+  - author
+  - featured_media
+  - parent
+  - menu_order
+  - comment_status
+  - ping_status
+  - template
+  - meta
+  - class_list
+  - acf
+  - yoast_head
+  - _links

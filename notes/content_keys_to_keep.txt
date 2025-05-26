@@ -1,0 +1,115 @@
+
+
+#tags
+
+  - id
+  - count
+  - description
+  - link
+  - name
+  - slug
+  - yoast_head
+
+#categories
+
+  - id
+  - count
+  - description
+  - link
+  - name
+  - slug
+  - parent
+  - yoast_head
+
+#comments
+
+  - id
+  - post
+  - parent
+  - author
+  - author_name
+  - author_url
+  - date
+  - date_gmt
+  - content
+  - link
+  - status
+  - type
+  - author_avatar_urls
+
+#posts
+
+  - id
+  - date
+  - date_gmt
+  - modified
+  - modified_gmt
+  - slug
+  - status
+  - type
+  - link
+  - title
+  - content
+  - excerpt
+  - author
+  - featured_media
+  - comment_status
+  - sticky
+  - categories
+  - tags
+  - yoast_head
+
+#media
+
+  - id
+  - date
+  - date_gmt
+  - modified
+  - modified_gmt
+  - slug
+  - type
+  - link
+  - title
+  - author
+  - yoast_head
+  - description
+  - caption
+  - alt_text
+  - media_type
+  - mime_type
+  - media_details
+  - post
+  - source_url
+
+#users
+
+  - id
+  - name
+  - url
+  - description
+  - link
+  - slug
+  - avatar_urls
+  - yoast_head
+
+#pages
+
+  - id
+  - date
+  - date_gmt
+  - modified
+  - modified_gmt
+  - slug
+  - status
+  - type
+  - link
+  - title
+  - content
+  - excerpt
+  - author
+  - featured_media
+  - parent
+  - menu_order
+  - comment_status
+  - template
+  - yoast_head
