@@ -2,6 +2,7 @@
 
 ## TODOS
 
+- complete the save mdx functionality. currently just a test with posts in run.py.
 - refactor utils.py
 - create funtion to create a markdown file from posts and pages.
 - create funtion to create a csv file from posts and pages.
