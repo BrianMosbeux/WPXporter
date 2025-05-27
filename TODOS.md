@@ -7,6 +7,7 @@
 - create funtion to create a markdown file from posts and pages.
 - create funtion to create a csv file from posts and pages.
 - check data cohesion and relationship categories, tags, author.. condider how and when they should be fetched. 
+- support image fetching
 
 ## IN PROGRESS
 
